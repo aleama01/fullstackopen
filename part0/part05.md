@@ -1,16 +1,12 @@
-Here is the diagram for sending the new note with the form:
+Here is the diagram of getting the single page app:
 
 ```mermaid
 sequenceDiagram
     participant browser
     participant server
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    activate server
-    server-->>browser: 302 - URL Redirect
-    deactivate server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -25,10 +21,12 @@ sequenceDiagram
     server-->>browser: the JavaScript file
     deactivate server
 
+    Note right of browser: Browser executes JS
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
     server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
     deactivate server
 
-    Note left of server: The server sends the updated version of data.json
+    Note right of browser: Browser renders notes
 ```
