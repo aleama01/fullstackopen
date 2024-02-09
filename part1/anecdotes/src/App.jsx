@@ -28,7 +28,6 @@ const App = () => {
     const handler = () => {
       const votesTmp = { ...votes }
       if (!votesTmp[selected]) {
-
         votesTmp[selected] = 0
       }
       votesTmp[selected] += 1
